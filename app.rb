@@ -5,3 +5,8 @@ require('sinatra/activerecord')
 require('./lib/task')
 require('pg')
 
+get('/') do
+  @tasks = Task.all
+  erb(:index)
+end
+

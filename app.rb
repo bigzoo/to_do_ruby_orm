@@ -29,5 +29,9 @@ end
 
 post('/tasks') do
   Task.new(description:params.fetch('description'),id:nil,done:false).save
-  erb(:success)
+  if @task.save()
+    erb(:success)
+  else
+    erb(:errors)
+  end
 end

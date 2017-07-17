@@ -28,7 +28,8 @@ patch('/tasks/:id') do
 end
 
 post('/tasks') do
-  Task.new(description:params.fetch('description'),id:nil,done:false).save
+  @task = Task.new(description:params.fetch('description'),id:nil,done:false)
+  @task.save()
   if @task.save()
     erb(:success)
   else

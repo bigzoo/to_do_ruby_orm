@@ -13,6 +13,10 @@ describe(Task) do
       task = Task.new({:description => ""})
       expect(task.save()).to(eq(false))
     end
+    it("ensures the length of description is at most 50 characters") do
+      task = Task.new({:description => "a".*(51)})
+      expect(task.save()).to(eq(false))
+    end
   end
 
   describe('#list') do

@@ -27,3 +27,7 @@ patch('/tasks/:id') do
   erb(:index)
 end
 
+post('/tasks') do
+  Task.new(description:params.fetch('description'),id:nil,done:false).save
+  erb(:success)
+end

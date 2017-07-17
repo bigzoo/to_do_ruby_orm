@@ -9,6 +9,10 @@ describe(Task) do
       done_task = Task.create(description: 'done task', done: true)
       expect(Task.not_done).to(eq(not_done_tasks))
     end
+    it("validates presence of description") do
+      task = Task.new({:description => ""})
+      expect(task.save()).to(eq(false))
+    end
   end
 
   describe('#list') do

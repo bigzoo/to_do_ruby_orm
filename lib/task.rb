@@ -3,5 +3,5 @@ class Task < ActiveRecord::Base
   scope(:not_done, -> do
       where({:done => false})
     end)
-  validates(:description, presence:true)
+  validates(:description, presence:true,length:{maximum:50})
 end

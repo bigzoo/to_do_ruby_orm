@@ -14,3 +14,8 @@ get('/tasks/new') do
   erb(:new_task)
 end
 
+get('/tasks/:id/edit') do
+  @task = Task.find(params.fetch('id').to_i)
+  erb(:task_edit)
+end
+

@@ -10,3 +10,7 @@ get('/') do
   erb(:index)
 end
 
+get('/tasks/new') do
+  erb(:new_task)
+end
+

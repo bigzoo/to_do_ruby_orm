@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'test'
 
 require('bundler/setup')
+Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
 Bundler.require(:default, :test)
 set(:root, Dir.pwd)
 

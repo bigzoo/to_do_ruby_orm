@@ -1,7 +1,7 @@
-require("bundler/setup")
-  Bundler.require(:default)
-  also_reload("lib/**/*.rb")
-
+require('bundler/setup')
+Bundler.require(:default)
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+also_reload('lib/**/*.rb')
 
 get('/') do
   @tasks = Task.all
@@ -26,9 +26,9 @@ patch('/tasks/:id') do
 end
 
 post('/tasks') do
-  @task = Task.new(description:params.fetch('description'),id:nil,done:false)
-  @task.save()
-  if @task.save()
+  @task = Task.new(description: params.fetch('description'), id: nil, done: false)
+  @task.save
+  if @task.save
     erb(:success)
   else
     erb(:errors)

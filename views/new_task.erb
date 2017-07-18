@@ -1,6 +1,7 @@
-<h1>Add a new Task</h1>
+<h1>Add a new Task to the <%=@list.name%> list</h1>
 
   <form action="/tasks" method="post">
+    <input type="hidden" name="list_id" value="<%=@list.id%>">
     <label for="description">Describe your task:</label>
     <input id="description" name="description" type="text">
 

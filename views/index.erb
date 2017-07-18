@@ -1,10 +1,10 @@
 <h1>To Do</h1>
 
-  <p>Here are all your tasks:</p>
+  <p>Here are all your lists:</p>
 
   <ul>
-    <% @tasks.not_done().each do |task| %>
-      <li><%= task.description %>  <a href="/tasks/<%= task.id() %>/edit">Update this task's description</a></li>
+    <% @lists.each do |list| %>
+      <li><a href="/lists/<%= list.id%>"><%= list.name %></a>   <a href="/list/<%= list.id() %>/edit">Update this list</a></li>
     <% end %>
   </ul>
-<a href="tasks/new">Add a new task</a>
+<a href="lists/new">Add a new list.</a>

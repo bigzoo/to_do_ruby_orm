@@ -1,0 +1,11 @@
+<h2>Here are all tasks in the <%=@list.name%> list:</h2>
+
+<ul>
+  <% @list.tasks().each() do |task| %>
+  <li><%= task.description %>
+    <a href="/lists/<%=@list.id%>/tasks/<%= task.id() %>/edit">Update this task's description</a>
+  </li>
+  <% end %>
+</ul>
+<a href="/lists/<%=@list.id%>/tasks/new">Add a new task to this list</a>
+<a href="/">See all lists</a>
